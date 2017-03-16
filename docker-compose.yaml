@@ -2,7 +2,7 @@ version: "3"
 services:
 
   api:
-    image: python:2.7.12
+    image: python:3.6.0
     container_name: "termmerge_api"
     build: .
     command: "flask run --host=0.0.0.0"
