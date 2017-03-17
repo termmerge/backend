@@ -9,7 +9,7 @@ services:
     ports: 
       - "8000:5000"
     volumes:
-      - "./app:/halcyon"
+      - "./app:/termmerge"
     links:
       - db
     env_file: .env
