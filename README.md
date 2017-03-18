@@ -36,7 +36,7 @@ The following are the API routes that can be accessed to utilize the backend API
 	
   * `POST /user`
     * Create a data provider account provided a provider name, username and password. This will automatically generate a data provider id to identify the data provider with whenever reporting a word convergence.
-    * Request Body: `{id:string, name:string,  username:string, password:string}`
+    * Request Body: `{name:string,  username:string, password:string}`
     * Response Body: `None`
     
   * `GET /user`
