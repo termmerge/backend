@@ -32,7 +32,8 @@ class User(Base):
   name = Column(postgresql.TEXT,
                 nullable=False)
   username = Column(postgresql.TEXT,
-                    nullable=False)
+                    nullable=False,
+                    unique=True)
   password = Column(postgresql.TEXT,
                     nullable=False)
   created_at = Column(postgresql.TIMESTAMP,
@@ -58,14 +59,15 @@ class Report(Base):
 class WordTimeline(Base):
   __tablename__ = "word_timeline"
 
-  report_id = Column(postgresql.TEXT,
+  report_id = Column(postgresql.INTEGER,
                      ForeignKey("report.id"),
                      nullable=False,
                      primary_key=True)
   word = Column(postgresql.TEXT,
-                nullable=False,
-                primary_key=True)
-  branch = Column(postgresql.INT,
-                  nullable=False)
-  epoch = Column(postgresql.INT,
-                 nullable=False)
+                nullable=False)
+  branch = Column(postgresql.INTEGER,
+                  nullable=False,
+                  primary_key=True)
+  epoch = Column(postgresql.INTEGER,
+                 nullable=False,
+                 primary_key=True)
