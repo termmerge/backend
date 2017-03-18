@@ -39,11 +39,6 @@ The following are the API routes that can be accessed to utilize the backend API
     * Request Body: `{name:string,  username:string, password:string}`
     * Response Body: `None`
     
-  * `GET /user`
-  	* Get the list of data providers
-    * Request Body: `None`
-    * Response Body: `[{name:string, username:string, createdAt:string}]`
-    
   * `GET /user/<username:string>`
   	* Get information about a specific provider
     * Request Body: `None`
