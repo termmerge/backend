@@ -1,0 +1,10 @@
+FROM python:3.6.0
+MAINTAINER Alastair Paragas <alastairparagas@gmail.com>
+
+VOLUME /termmerge
+
+ADD ./app/requirements.txt /termmerge/requirements.txt
+RUN pip install -r /termmerge/requirements.txt
+
+ADD startup.sh /startup.sh
+RUN chmod +x startup.sh

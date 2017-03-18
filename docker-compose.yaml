@@ -2,16 +2,18 @@ version: "3"
 services:
 
   api:
-    image: python:3.6.0
     container_name: "termmerge_api"
-    build: .
-    command: "flask run --host=0.0.0.0"
+    build:
+        context: .
+        dockerfile: python_docker
+    command: ["/startup.sh"]
     ports: 
       - "8000:5000"
     volumes:
-      - "./app:/termmerge"
+      - ./app:/termmerge
     links:
-      - db
+      - db_relational
+      - db_graph
     env_file: .env
     
   db_relational:
@@ -25,3 +27,4 @@ services:
     env_file: .env
     ports:
       - "7474:7474"
+      - "7687:7687"
