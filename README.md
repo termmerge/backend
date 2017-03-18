@@ -25,11 +25,11 @@ Data is stored on the relational database in normalized form, for allowing all s
 
 | user                  | report                    | word_timeline                     |
 |-----------------------|---------------------------|-----------------------------------|
-| **id** `varchar`      | **id** `varchar`          | **report_id** `foreign:report.id` |
-| name `int`            | user_id `foreign:user.id` | **word** `string`                 |
-| username `int`        | created_at `datetime`     | pre_word `string`                 |
-| password `text`       | converge `string`         | post_word `string`                |
-| created_at `datetime` |                           | epoch `int`                       |
+| **id** `int`          | **id** `int`              | **report_id** `foreign:report.id` |
+| name `int`            | user_id `foreign:user.id` | word `string`                     |
+| username `int`        | created_at `datetime`     | **branch** `int`                  |
+| password `text`       | converge `string`         | **epoch** `int`                   |
+| created_at `datetime` |                           |                                   |
 
 ## API Routes
 The following are the API routes that can be accessed to utilize the backend API

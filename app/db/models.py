@@ -18,35 +18,34 @@ db_engine = create_engine(
 )
 
 metadata = MetaData(bind=db_engine)
-session = sessionmaker(bind=db_engine)
+SessionClass = sessionmaker(bind=db_engine)
 Base = declarative_base(bind=db_engine, metadata=metadata)
-
-
-def run_migrations():
-  db_engine.connect()
-  metadata.create_all(db_engine)
 
 
 class User(Base):
   __tablename__ = "user"
 
-  id = Column(postgresql.TEXT,
+  id = Column(postgresql.INTEGER,
               nullable=False,
-              primary_key=True)
+              primary_key=True,
+              autoincrement=True)
   name = Column(postgresql.TEXT,
                 nullable=False)
   username = Column(postgresql.TEXT,
                     nullable=False)
   password = Column(postgresql.TEXT,
                     nullable=False)
+  created_at = Column(postgresql.TIMESTAMP,
+                      nullable=False)
 
 
 class Report(Base):
   __tablename__ = "report"
 
-  id = Column(postgresql.TEXT,
+  id = Column(postgresql.INTEGER,
               nullable=False,
-              primary_key=True)
+              primary_key=True,
+              autoincrement=True)
   user_id = Column(postgresql.TEXT,
                    ForeignKey("user.id"),
                    nullable=False)
@@ -66,9 +65,7 @@ class WordTimeline(Base):
   word = Column(postgresql.TEXT,
                 nullable=False,
                 primary_key=True)
-  pre_word = Column(postgresql.TEXT,
-                    nullable=False)
-  post_word = Column(postgresql.TEXT,
-                     nullable=False)
+  branch = Column(postgresql.INT,
+                  nullable=False)
   epoch = Column(postgresql.INT,
                  nullable=False)
