@@ -23,20 +23,20 @@ The following technologies were used:
 
 Data is stored on the relational database in normalized form, for allowing all sorts of other algorithms and computation work to be done on the raw data.
 
-| user             | report                    | word_timeline                     |
-|------------------|---------------------------|-----------------------------------|
-| **id** `varchar` | **id** `varchar`          | **report_id** `foreign:report.id` |
-| name `int`       | user_id `foreign:user.id` | **word** `string`                 |
-| username `int`   | created_at `datetime`     | pre_word `string`                 |
-| password `text`  | converge `string`         | post_word `string`                |
-|                  |                           | epoch `int`                       |
+| user                  | report                    | word_timeline                     |
+|-----------------------|---------------------------|-----------------------------------|
+| **id** `varchar`      | **id** `varchar`          | **report_id** `foreign:report.id` |
+| name `int`            | user_id `foreign:user.id` | **word** `string`                 |
+| username `int`        | created_at `datetime`     | pre_word `string`                 |
+| password `text`       | converge `string`         | post_word `string`                |
+| created_at `datetime` |                           | epoch `int`                       |
 
 ## API Routes
 The following are the API routes that can be accessed to utilize the backend API
 	
   * `POST /user`
     * Create a data provider account provided a provider name, username and password. This will automatically generate a data provider id to identify the data provider with whenever reporting a word convergence.
-    * Request Body: `{name:string,  username:string, password:string}`
+    * Request Body: `{id:string, name:string,  username:string, password:string}`
     * Response Body: `None`
     
   * `GET /user`
