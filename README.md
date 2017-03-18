@@ -26,8 +26,8 @@ Data is stored on the relational database in normalized form, for allowing all s
 | user                  | report                    | word_timeline                     |
 |-----------------------|---------------------------|-----------------------------------|
 | **id** `int`          | **id** `int`              | **report_id** `foreign:report.id` |
-| name `int`            | user_id `foreign:user.id` | word `string`                     |
-| username `int`        | created_at `datetime`     | **branch** `int`                  |
+| name `text`           | user_id `foreign:user.id` | word `string`                     |
+| username `text`       | created_at `datetime`     | **branch** `int`                  |
 | password `text`       | converge `string`         | **epoch** `int`                   |
 | created_at `datetime` |                           |                                   |
 

@@ -46,7 +46,7 @@ class Report(Base):
               nullable=False,
               primary_key=True,
               autoincrement=True)
-  user_id = Column(postgresql.TEXT,
+  user_id = Column(postgresql.INTEGER,
                    ForeignKey("user.id"),
                    nullable=False)
   created_at = Column(postgresql.TIMESTAMP,
